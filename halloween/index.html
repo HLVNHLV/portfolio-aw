@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scary Halloween Party</title>
+    <link href="https://fonts.googleapis.com/css?family=Creepster|Nosifer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
+    <!-- este diseño no es responsive, solo para PC pero se adapta al tamaño de pantalla -->
+    <style>
+       body {background-color:black;}
+       #wrapper {position:relative;                            /* el wrapper se mueve para centrarse */
+                 background-image:url("imagenes/fondo.jpg");   /* la que yo quiera, de unos 1200px */
+                 width:1200px;                                 /* ancho exacto de mi imagen */
+                 height:900px;                                 /* alto exacto de mi imagen */
+                 margin: 20px auto;                            /* para centrar el wrapper en el body */
+                 border-radius:200px;                          /* para redondear las esquinas si quiero */
+                 box-shadow:rgb(143, 98, 15) 20px 20px 20px, /* para poner sombreado al wrapper */
+                 rgb(143, 98, 15) -20px -20px 20px,
+                 rgb(143, 98, 15) 20px -20px 20px,
+                 rgb(143, 98, 15) -20px 20px 20px;}
+        h1 {position:absolute;    /* lo que va dentro de wrapper se mueve con él */
+            left:80px;            /* para mover a otro sitio del escenario */
+            top:20px;
+            font-family: 'Nosifer', cursive;  /* tipo de letra */
+            font-size:250%;                   /* tamaño */
+            }
+        #p1 {position:absolute;
+             top:475px;
+             left:900px;
+             font-size:200%;
+             font-family: 'Creepster', cursive;}       
+        #window {position:absolute;
+                 top:160px;
+                 left:650px;
+                 width:60px;
+                 height:80px;
+                 /*border:1px solid white;*/
+                 }
+        #cat {position:absolute;           /* posicionamiento del recuadro del gato */
+              top:600px;
+              left:920px;
+              width:160px;                 /* ancho y alto del cuadro */
+              height:130px;
+              /*border:1px solid white*/;} /* borde para que se vea mientras lo coloco */
+        #zombie {position:absolute;
+                 top:600px;
+                 left:500px;
+                 visibility:hidden;}
+        #bats { position:absolute;
+            visibility:hidden;}
+    </style>
+    <!-- Funciones de javascript para mostrar/ocultar y sonar/parar -->
+    <script>
+       function mostrar(id){
+           document.getElementById(id).style.visibility="visible";
+       }
+       function ocultar(id){
+           document.getElementById(id).style.visibility="hidden";
+       }
+       function sonar(id){
+           document.getElementById(id).play();
+       }
+       function parar(id){
+           document.getElementById(id).pause();
+       }
+    </script>
+</head>   
+<body>
+    <!-- aquí irían las etiquetas de audio, fuera de wrapper -->
+    <audio id="demon">
+      <source src="sonidos/Demon_Girls_Mockingbir-Hello-1365708396.mp3" type="audio/mpeg">
+    </audio>
+    <!-- el wrapper contiene todos los elementos visibles: texto, imágenes,...-->
+    <div id="wrapper">
+      <h1>Scary Halloween Party</h1>
+      <div id="window"></div>
+      <p id="p1">Don´t disturb the cat!!!...</p>
+      <div id="cat" onmouseover="mostrar('zombie');sonar('demon')" 
+                    onmouseout="ocultar('zombie');parar('demon')"></div>
+      <img id="zombie"  src="imagenes/Zombi.gif" height="300">
+      <img id="bats" src="imagenes/bats.gif">
+    </div>
+</body>
+</html>
