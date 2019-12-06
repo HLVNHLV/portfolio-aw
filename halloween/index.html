@@ -4,54 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Scary Halloween Party</title>
+    <title>Zombies</title> <!-- Por si te lo preguntas, esto es una referencia (y gorda) al videojuego Plantas vs zombies -->
     <link href="https://fonts.googleapis.com/css?family=Creepster|Nosifer&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
-    <!-- este diseño no es responsive, solo para PC pero se adapta al tamaño de pantalla -->
+    <link href="imagenes/icono.png" rel="icon">
     <style>
        body {background-color:black;}
-       #wrapper {position:relative;                            /* el wrapper se mueve para centrarse */
-                 background-image:url("imagenes/fondo.jpg");   /* la que yo quiera, de unos 1200px */
-                 width:1200px;                                 /* ancho exacto de mi imagen */
-                 height:900px;                                 /* alto exacto de mi imagen */
-                 margin: 20px auto;                            /* para centrar el wrapper en el body */
-                 border-radius:200px;                          /* para redondear las esquinas si quiero */
-                 box-shadow:rgb(143, 98, 15) 20px 20px 20px, /* para poner sombreado al wrapper */
-                 rgb(143, 98, 15) -20px -20px 20px,
-                 rgb(143, 98, 15) 20px -20px 20px,
-                 rgb(143, 98, 15) -20px 20px 20px;}
-        h1 {position:absolute;    /* lo que va dentro de wrapper se mueve con él */
-            left:80px;            /* para mover a otro sitio del escenario */
+       #wrapper {position:relative;                            
+                 background-image:url("imagenes/fondo.jpg");
+                 width:1280px;
+                 height:800px;
+                 margin: 20px auto;
+                 border-radius:200px;
+                 box-shadow:rgb(15, 45, 143) 20px 20px 20px,
+                 rgb(15, 45, 143) 20px 20px 20px,
+                 rgb(15, 45, 143) 20px 20px 20px,
+                 rgb(15, 45, 143) 20px 20px 20px;}
+        h1 {position:absolute;
+            left:80px;
             top:20px;
-            font-family: 'Nosifer', cursive;  /* tipo de letra */
-            font-size:250%;                   /* tamaño */
+            font-family: 'Nosifer', cursive;
+            font-size:250%;
             }
         #p1 {position:absolute;
-             top:475px;
+             top:175px;
              left:900px;
              font-size:200%;
              font-family: 'Creepster', cursive;}       
-        #window {position:absolute;
-                 top:160px;
-                 left:650px;
-                 width:60px;
+        #cielo {position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:930px;
                  height:80px;
-                 /*border:1px solid white;*/
+                 /* border:1px solid white; */
                  }
-        #cat {position:absolute;           /* posicionamiento del recuadro del gato */
-              top:600px;
-              left:920px;
-              width:160px;                 /* ancho y alto del cuadro */
-              height:130px;
-              /*border:1px solid white*/;} /* borde para que se vea mientras lo coloco */
-        #zombie {position:absolute;
+        #tumba2 {position:absolute;
                  top:600px;
+                 left:50px;
+                 width:160px;
+                 height:200px;
+                 /* border:1px solid white; */
+                 }
+        #tumba1 {position:absolute;
+              top:510px;
+              left:930px;
+              width:160px;
+              height:130px;
+              /* border:1px solid white; */
+              }
+        #zombie {position:absolute;
+                 top:400px;
+                 left:500px;
+                 visibility:hidden;}
+        #boongie {position:absolute;
+                 top:0px;
+                 left:950px;
+                 visibility:hidden;}
+        #flag {position:absolute;
+                 top:400px;
                  left:500px;
                  visibility:hidden;}
         #bats { position:absolute;
             visibility:hidden;}
     </style>
-    <!-- Funciones de javascript para mostrar/ocultar y sonar/parar -->
     <script>
        function mostrar(id){
            document.getElementById(id).style.visibility="visible";
@@ -68,19 +83,21 @@
     </script>
 </head>   
 <body>
-    <!-- aquí irían las etiquetas de audio, fuera de wrapper -->
-    <audio id="demon">
-      <source src="sonidos/Demon_Girls_Mockingbir-Hello-1365708396.mp3" type="audio/mpeg">
+    <audio id="brains">
+      <source src="sonidos/brains.mp3" type="audio/mpeg"> <!-- Desgraciadamente esto es todo lo que he podido encontrar :( -->
     </audio>
-    <!-- el wrapper contiene todos los elementos visibles: texto, imágenes,...-->
     <div id="wrapper">
-      <h1>Scary Halloween Party</h1>
-      <div id="window"></div>
-      <p id="p1">Don´t disturb the cat!!!...</p>
-      <div id="cat" onmouseover="mostrar('zombie');sonar('demon')" 
-                    onmouseout="ocultar('zombie');parar('demon')"></div>
-      <img id="zombie"  src="imagenes/Zombi.gif" height="300">
-      <img id="bats" src="imagenes/bats.gif">
+      <h1>Bienvenido a El cementerio...</h1>
+      <p id="p1">Intenta encontrar los... secretos...</p>
+      <div id="tumba1" onmouseover="mostrar('zombie');sonar('brains')" 
+                    onmouseout="ocultar('zombie');parar('brains')"></div>
+      <div id="tumba2" onmouseover="mostrar('flag')"
+                    onmouseout="ocultar('flag')"></div>
+      <div id="cielo" onmouseover="mostrar('boongie')"
+                    onmouseout="ocultar('boongie')"></div>
+      <img id="zombie"  src="imagenes/Zombieidle.gif" height="250">
+      <img id="boongie"  src="imagenes/boongie.gif" height="250">
+      <img id="flag"  src="imagenes/flag.gif" height="400">
     </div>
 </body>
 </html>
