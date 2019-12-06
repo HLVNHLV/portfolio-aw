@@ -1,0 +1,23 @@
+
+body {background-image:url("imagenes/fondo.jpg") ;    
+      background-size: 25%;
+}
+#wrapper{
+    background-color:white;
+    width: 600px;
+    margin:auto;
+    padding:1vw;
+    border:2px solid black ;
+}
+h1 {text-align: center;
+    color:rgb(128, 64, 0);
+}
+h2 {text-align:left;
+    color:rgb(173, 132, 91);
+    }
+p {text-align: center;
+    color:rgb(0, 0, 0);
+}
+table {border: 1px solid black;
+
+}
